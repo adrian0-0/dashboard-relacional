@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  server:
+    container_name: "crud-prisma"
+    build: .
+    image: node19-alpine
+    ports:
+      - 8080:8080
+      - 3333:3333
+    volumes:
+      - .:/app

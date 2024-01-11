@@ -14,10 +14,19 @@ model Professor {
   id    Int     @id @default(autoincrement())
   email String  @unique
   name  String
+  empresa Empresa?
+
+  @@map("professores")
 }
 
 model Empresa {
   id    Int     @id @default(autoincrement())
-  programa String  
   name  String
+  programa String
+  orientadorTecnico String 
+  monitor String
+  professor Professor @relation(fields: [professorId], references: [id] )
+  professorId Int @unique
+
+  @@map("empresas")
 }

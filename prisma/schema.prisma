@@ -25,8 +25,8 @@ model Empresa {
   programa String
   orientadorTecnico String 
   monitor String
-  professor Professor @relation(fields: [professorId], references: [id] )
-  professorId Int
+  professor Professor? @relation(fields: [professorId], references: [id] )
+  professorId Int?
 
   @@map("empresas")
 }

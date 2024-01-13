@@ -14,7 +14,7 @@ model Professor {
   id    Int     @id @default(autoincrement())
   email String  @unique
   name  String
-  empresa Empresa?
+  empresa Empresa[]
 
   @@map("professores")
 }
@@ -25,8 +25,32 @@ model Empresa {
   programa String
   orientadorTecnico String 
   monitor String
-  professor Professor @relation(fields: [professorId], references: [id] )
-  professorId Int @unique
+  professor Professor? @relation(fields: [professorId], references: [id] )
+  professorId Int?
 
   @@map("empresas")
 }
+
+//RELACIONAMENTO UM PARA UM
+
+// Para realizar um relacionamento  de um para um coloque as informações abaixo: 
+// model Professor{ 
+//   id  Int  @id @default(autoincrement())
+//   empresa Empresa?
+// }
+// model Empresa {
+//    professor Professor @relation(fields: [professorId], references: [id] )
+//    professorId Int @unique
+// }
+
+//RELACIONAMENTO UM PARA MUITOS
+
+// Para realizar um relacionamento  de um para um coloque as informações abaixo: 
+// model Professor{ 
+//   id  Int  @id @default(autoincrement())
+//   empresa Empresa[]
+// }
+// model Empresa {
+//    professor Professor @relation(fields: [professorId], references: [id] )
+//    professorId Int
+// }

@@ -1,19 +1,63 @@
 import { useState } from "react";
 
 import reactLogo from "/assets/react.svg";
-import { Box, Flex, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Table,
+  Thead,
+  Tbody,
+  Tfoot,
+  Tr,
+  Th,
+  Td,
+  TableCaption,
+  TableContainer,
+} from "@chakra-ui/react";
+import Teste from "./Teste";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <Flex>
-      <Text>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim iure
-        magnam aliquid saepe fuga harum neque odit molestias modi possimus.
-        Minima vel tempore, consequatur neque voluptatibus esse expedita unde
-        dolorum!
-      </Text>
+    <Flex justifyContent={"center"} alignItems={"center"} h={"100dvh"}>
+      <TableContainer>
+        <Table variant="simple">
+          <TableCaption>Tabela do professor</TableCaption>
+          <Thead>
+            <Tr>
+              <Th>Professor</Th>
+              <Th>Email</Th>
+              <Th isNumeric>Empresas Associadas</Th>
+            </Tr>
+          </Thead>
+          <Tbody>
+            <Tr>
+              <Td>inches</Td>
+              <Td>millimetres (mm)</Td>
+              <Td isNumeric>25.4</Td>
+            </Tr>
+            <Tr>
+              <Td>feet</Td>
+              <Td>centimetres (cm)</Td>
+              <Td isNumeric>30.48</Td>
+            </Tr>
+            <Tr>
+              <Td>yards</Td>
+              <Td>metres (m)</Td>
+              <Td isNumeric>0.91444</Td>
+            </Tr>
+          </Tbody>
+          <Tfoot>
+            <Tr>
+              <Th>Professor</Th>
+              <Th>Email</Th>
+              <Th isNumeric>Empresas Associadas</Th>
+            </Tr>
+          </Tfoot>
+        </Table>
+      </TableContainer>
+      <Teste />
     </Flex>
   );
 }
